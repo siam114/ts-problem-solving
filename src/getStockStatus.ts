@@ -9,4 +9,4 @@ const getStockStatus = (stock: number):string =>{
     return "In Stock";
 }
 
-console.log(getStockStatus(50))
+// console.log(getStockStatus(50))
