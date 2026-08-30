@@ -9,12 +9,20 @@ interface Result {
     result: string
 }
 
-const calculateCartTotal = (student: Student):number=>{
+const calculateCartTotal = (student: Student):Result=>{
      const marks: number[] = student.marks;
 
-     const totalMarks:number = marks.reduce((sum, mark)=> sum+ mark,0)
+     const totalMarks:number = marks.reduce((sum, mark)=> sum+ mark,0);
 
-     return totalMarks;
+     const average:number = totalMarks / marks.length;
+
+     const result:string = average >=40?"Passed":"Failed";
+
+     return {
+        name: student.name,
+        average: average,
+        result: result
+     }
 }
 
 console.log(calculateCartTotal({

@@ -3,7 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const calculateCartTotal = (student) => {
     const marks = student.marks;
     const totalMarks = marks.reduce((sum, mark) => sum + mark, 0);
-    return totalMarks;
+    const average = totalMarks / marks.length;
+    const result = average >= 40 ? "Passed" : "Failed";
+    return {
+        name: student.name,
+        average: average,
+        result: result
+    };
 };
 console.log(calculateCartTotal({
     name: "Siam",
